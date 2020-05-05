@@ -13,26 +13,26 @@ namespace Lab01_ExceptionHandlingAndDebugging
             try
             {
                 // call StartSequence
-                Console.WriteLine("Welcome to my game! Let's do some math!");
+                Console.WriteLine("Welcome to the war games. Are the odds in your favor?");
                 StartSequence();
             }
             catch (Exception)
             {
                 // handle general exceptions
-                Console.WriteLine("Mistakes were made. Whoops.");
+                Console.WriteLine("Mistakes were made. Men have died.");
                 throw;
             }
             finally
             {
                 // signal the application is finished
-                Console.WriteLine("Program COMPLETE!");
+                Console.WriteLine("MISSION COMPLETE!");
             }
         }
 
         private static void StartSequence()
         {
             // ask user for input
-            Console.WriteLine("Please, enter a number greater than zero:");
+            Console.WriteLine("The death toll is much higher than zero. Just how many measures? Try to guess.");
             int arraySizer = int.Parse(Console.ReadLine());
             
             // instatiate an int array
@@ -61,7 +61,7 @@ namespace Lab01_ExceptionHandlingAndDebugging
                 Console.WriteLine($"Please enter number {i+1} of {userArray.Length}.");
                 userArray[i] = int.Parse(Console.ReadLine());
             }
-            Console.WriteLine($"Your numbers are: {userArray}");
+            Console.WriteLine($"Your numbers are: {String.Join(", ", userArray)}");
             return userArray;
         }
 
@@ -79,8 +79,8 @@ namespace Lab01_ExceptionHandlingAndDebugging
                 Console.WriteLine(sum);
                 if (sum < 20)
                 {
-                    Console.WriteLine("Your number is toooo loooow, friend!");
-                    return 0;
+                    Console.WriteLine($"Your an optimist, I see. Try a higher number than {sum}");
+                    return 156441;
                 }
                 else
                 {
@@ -98,8 +98,8 @@ namespace Lab01_ExceptionHandlingAndDebugging
         {
             try
             {
-                Console.WriteLine($"Select a number between 1 and {userArray.Length}, please.");
-                int userIndex = int.Parse(Console.ReadLine());
+                Console.WriteLine($"Select a number between 1 and {userArray.Length}. Or die trying.");
+                int userIndex = int.Parse(Console.ReadLine()) - 1;
                 int product = sum * userArray[userIndex];
                 Console.WriteLine($"Your product: {product}");
                 return product;
@@ -116,7 +116,7 @@ namespace Lab01_ExceptionHandlingAndDebugging
             try
             {
                 //ask for user input
-                Console.WriteLine($"Please, enter a number to divide your staggering {product} by.");
+                Console.WriteLine($"Enter a number to divide your staggering {product} undead soldiers by.");
                 // parse user input
                 int dividend = int.Parse(Console.ReadLine());
                 // declare decimal variable
@@ -127,7 +127,7 @@ namespace Lab01_ExceptionHandlingAndDebugging
             }
             catch (DivideByZeroException)
             {
-                Console.WriteLine("Why U try 2 divid buy 0, meow?");
+                Console.WriteLine("Don't you know you can't divide by 0, man?");
                 throw;
             }
         }
