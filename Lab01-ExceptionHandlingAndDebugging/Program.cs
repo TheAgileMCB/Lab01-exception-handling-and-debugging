@@ -88,8 +88,7 @@ namespace Lab01_ExceptionHandlingAndDebugging
                 Console.WriteLine("Dooone");
             }
               
-
-
+       
         }
 
         //static int GetProduct()
