@@ -114,7 +114,7 @@ namespace Lab01_ExceptionHandlingAndDebugging
                 // multiply the value at the chose index with the sum of all values 
                 int product = sum * userArray[userIndex];
                 // output the results
-                Console.WriteLine($"Your product: {product} --NOW a suitable army.");
+                Console.WriteLine($"Yes-- {product} --NOW a suitable army.");
                 //return the results
                 return product;
             }
@@ -137,7 +137,7 @@ namespace Lab01_ExceptionHandlingAndDebugging
                 int dividend = int.Parse(Console.ReadLine());
                 // declare decimal variable
                 decimal quotient = decimal.Divide(product, dividend);
-                Console.WriteLine($"Your quotient: {quotient} losses on this day. But the war is won; you served your kingdom well. The Board is sorry you had to sacrifice your life for the cause of our culture. Statues shall be errected in your honor and our independence day shall be celebrated in your name.");
+                Console.WriteLine($"Only {quotient} soldiers survived this day. But the war is won; you served your kingdom well. The Board is sorry you had to sacrifice your life for the cause of our culture. Statues shall be errected in your honor and our independence day shall be celebrated in your name.");
                 // return quotient
                 return quotient;
             }
