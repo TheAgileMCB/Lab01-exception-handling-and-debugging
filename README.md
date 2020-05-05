@@ -13,5 +13,4 @@ A "fun" number "game" for folks who like typing numbers and following orders.
 **And thanks** for listening.
 
 #
-The code in this project is licensed under MIT license.
->>>[MIT License](https://github.com/mcbarnhart/Lab01-exception-handling-and-debugging/blob/master/LICENSE)
+The code in this project is licensed under [MIT License](https://github.com/mcbarnhart/Lab01-exception-handling-and-debugging/blob/master/LICENSE).
