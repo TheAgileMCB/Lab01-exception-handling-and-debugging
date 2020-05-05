@@ -43,13 +43,13 @@ namespace Lab01_ExceptionHandlingAndDebugging
             Populate(userArray);
 
             // call GetSum
-            GetSum(userArray);
+            int sum = GetSum(userArray);
 
             // call GetProduct
-           GetProduct(userArray, sum);
+           int product = GetProduct(userArray, sum);
 
             // call GetQuotient
-            GetQuotient(product);
+            decimal quotient = GetQuotient(product);
 
         }
 
@@ -61,7 +61,7 @@ namespace Lab01_ExceptionHandlingAndDebugging
                 Console.WriteLine($"Please enter number {i+1} of {userArray.Length}.");
                 userArray[i] = int.Parse(Console.ReadLine());
             }
-            
+            Console.WriteLine($"Your numbers are: {userArray}");
             return userArray;
         }
 
@@ -94,15 +94,42 @@ namespace Lab01_ExceptionHandlingAndDebugging
             }
         }
 
-        static int GetProduct(int[] userArray)
+        static int GetProduct(int[] userArray, int sum)
         {
-            Console.WriteLine($"Select a number between 1 and {userArray.Length}, please.");
+            try
+            {
+                Console.WriteLine($"Select a number between 1 and {userArray.Length}, please.");
+                int userIndex = int.Parse(Console.ReadLine());
+                int product = sum * userArray[userIndex];
+                Console.WriteLine($"Your product: {product}");
+                return product;
+            }
+            catch (IndexOutOfRangeException)
+            {
+                throw;
+            }
 
         }
 
-        static int GetQuotient()
+        static decimal GetQuotient(int product)
         {
-
+            try
+            {
+                //ask for user input
+                Console.WriteLine($"Please, enter a number to divide your staggering {product} by.");
+                // parse user input
+                int dividend = int.Parse(Console.ReadLine());
+                // declare decimal variable
+                decimal quotient = decimal.Divide(product, dividend);
+                Console.WriteLine($"Your quotient: {quotient}");
+                // return quotient
+                return quotient;
+            }
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("Why U try 2 divid buy 0, meow?");
+                throw;
+            }
         }
     }
 }
