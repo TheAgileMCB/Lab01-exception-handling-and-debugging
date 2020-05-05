@@ -33,7 +33,7 @@ namespace Lab01_ExceptionHandlingAndDebugging
         {
             // ask user for input
             Console.WriteLine("The death toll is much higher than zero. Just how many measures? Try to guess.");
-            int arraySizer = int.Parse(Console.ReadLine());
+            int arraySizer = Convert.ToInt32(Console.ReadLine());
             
             // instatiate an int array
             int[] userArray = new int[arraySizer];
@@ -44,6 +44,9 @@ namespace Lab01_ExceptionHandlingAndDebugging
 
             // call GetSum
             int sum = GetSum(userArray);
+
+            // output adjusted sum
+            Console.WriteLine($"Your adjusted death toll is: {sum}");
 
             // call GetProduct
            int product = GetProduct(userArray, sum);
@@ -140,7 +143,7 @@ namespace Lab01_ExceptionHandlingAndDebugging
             catch (DivideByZeroException)
             {
                 Console.WriteLine("Don't you know you can't divide by 0, man?");
-                throw;
+                return 0;
             }
         }
     }
