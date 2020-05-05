@@ -98,7 +98,7 @@ namespace Lab01_ExceptionHandlingAndDebugging
             catch (ArgumentNullException)
             {
 
-                throw;
+                throw new Exception("Nice try soldier, but you aren't getting out of this one.");
             }
         }
 
@@ -120,7 +120,8 @@ namespace Lab01_ExceptionHandlingAndDebugging
             // catch potential errors
             catch (IndexOutOfRangeException)
             {
-                throw;
+                throw new Exception("You're not getting out of this one, soldier!");
+           
             }
 
         }
