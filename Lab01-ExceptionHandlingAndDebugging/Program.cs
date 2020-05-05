@@ -13,7 +13,8 @@ namespace Lab01_ExceptionHandlingAndDebugging
             try
             {
                 // call StartSequence
-                Console.WriteLine("Welcome to the war games. Are the odds in your favor?");
+                Console.WriteLine("DOGS OF WAR");
+                Console.WriteLine("Welcome to the war room, General. You are our last hope. You will need to learn quickly to face the foes before us. Or our culture shall be swallowed by the Darkness.");
                 StartSequence();
             }
             catch (Exception)
@@ -32,7 +33,7 @@ namespace Lab01_ExceptionHandlingAndDebugging
         private static void StartSequence()
         {
             // ask user for input
-            Console.WriteLine("The death toll is much higher than zero. Just how many measures? Try to guess.");
+            Console.WriteLine("Prepare for battle, General. How many battalions do you require today?");
             int arraySizer = Convert.ToInt32(Console.ReadLine());
             
             // instatiate an int array
@@ -46,7 +47,7 @@ namespace Lab01_ExceptionHandlingAndDebugging
             int sum = GetSum(userArray);
 
             // output adjusted sum
-            Console.WriteLine($"Your adjusted death toll is: {sum}");
+            Console.WriteLine($"Your enhanced troop count is {sum}");
 
             // call GetProduct
            int product = GetProduct(userArray, sum);
@@ -62,11 +63,11 @@ namespace Lab01_ExceptionHandlingAndDebugging
             for (int i = 0; i < userArray.Length; i++)
             {
                 // prompt user for input and read it
-                Console.WriteLine($"Please enter number {i+1} of {userArray.Length}.");
+                Console.WriteLine($"Please number the undead troops of battalion {i+1} of {userArray.Length}.");
                 userArray[i] = int.Parse(Console.ReadLine());
             }
             // output user results and return them
-            Console.WriteLine($"Your numbers are: {String.Join(", ", userArray)}");
+            Console.WriteLine($"Your battalions number as follows: {String.Join(", ", userArray)}");
             return userArray;
         }
 
@@ -85,7 +86,7 @@ namespace Lab01_ExceptionHandlingAndDebugging
                 if (sum < 20)
                 {
                     // I beleive this should be a throw so the app breaks, but it returns a large number instead
-                    Console.WriteLine($"Your an optimist, I see. Try a higher number than {sum}");
+                    Console.WriteLine($"Your an optimist, I see. But you over-estimate your abilities! You will ceratinly require more troops than {sum}.");
                     return 156441;
                 }
                 else
@@ -98,7 +99,7 @@ namespace Lab01_ExceptionHandlingAndDebugging
             catch (ArgumentNullException)
             {
 
-                throw new Exception("Nice try soldier, but you aren't getting out of this one.");
+                throw new Exception("Nice try General, but you aren't getting out of this one.");
             }
         }
 
@@ -107,20 +108,20 @@ namespace Lab01_ExceptionHandlingAndDebugging
             try
             {
                 // prompt the user for input
-                Console.WriteLine($"Select a number between 1 and {userArray.Length}. Or die trying.");
+                Console.WriteLine($"You will need far more troops than you can comprehend to win this war, General. Select a multiplier between 1 and {userArray.Length} and the necromancers shall grant it.");
                 // take user input and adjust for index consideration
                 int userIndex = int.Parse(Console.ReadLine()) - 1;
                 // multiply the value at the chose index with the sum of all values 
                 int product = sum * userArray[userIndex];
                 // output the results
-                Console.WriteLine($"Your product: {product}");
+                Console.WriteLine($"Your product: {product} --NOW a suitable army.");
                 //return the results
                 return product;
             }
             // catch potential errors
             catch (IndexOutOfRangeException)
             {
-                throw new Exception("You're not getting out of this one, soldier!");
+                throw new Exception("You're not getting out of this one, General!");
            
             }
 
@@ -131,19 +132,19 @@ namespace Lab01_ExceptionHandlingAndDebugging
             try
             {
                 //ask for user input
-                Console.WriteLine($"Enter a number to divide your staggering {product} undead soldiers by.");
+                Console.WriteLine($"Enter a number by which to divide your staggering {product} undead soldiers.");
                 // parse user input
                 int dividend = int.Parse(Console.ReadLine());
                 // declare decimal variable
                 decimal quotient = decimal.Divide(product, dividend);
-                Console.WriteLine($"Your quotient: {quotient}");
+                Console.WriteLine($"Your quotient: {quotient} losses on this day. But the war is won; you served your kingdom well. The Board is sorry you had to sacrifice your life for the cause of our culture. Statues shall be errected in your honor and our independence day shall be celebrated in your name.");
                 // return quotient
                 return quotient;
             }
             // catch exceptions with custom message
             catch (DivideByZeroException)
             {
-                Console.WriteLine("Don't you know you can't divide by 0, man?");
+                Console.WriteLine("Don't you know you can't divide by 0, man?!");
                 return 0;
             }
         }
