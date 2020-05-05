@@ -58,9 +58,11 @@ namespace Lab01_ExceptionHandlingAndDebugging
             //iterate through an array
             for (int i = 0; i < userArray.Length; i++)
             {
+                // prompt user for input and read it
                 Console.WriteLine($"Please enter number {i+1} of {userArray.Length}.");
                 userArray[i] = int.Parse(Console.ReadLine());
             }
+            // output user results and return them
             Console.WriteLine($"Your numbers are: {String.Join(", ", userArray)}");
             return userArray;
         }
@@ -73,20 +75,23 @@ namespace Lab01_ExceptionHandlingAndDebugging
             try
             {
                 // iterate through array and sum all elements
-
                 Array.ForEach(userArray, i => sum += i);
 
                 Console.WriteLine(sum);
+                // check if the user entered a high enough number
                 if (sum < 20)
                 {
+                    // I beleive this should be a throw so the app breaks, but it returns a large number instead
                     Console.WriteLine($"Your an optimist, I see. Try a higher number than {sum}");
                     return 156441;
                 }
                 else
                 {
+                    // else return the user number
                     return sum;
                 }
             }
+            // catch an exception Array.ForEach can throw
             catch (ArgumentNullException)
             {
 
@@ -98,12 +103,18 @@ namespace Lab01_ExceptionHandlingAndDebugging
         {
             try
             {
+                // prompt the user for input
                 Console.WriteLine($"Select a number between 1 and {userArray.Length}. Or die trying.");
+                // take user input and adjust for index consideration
                 int userIndex = int.Parse(Console.ReadLine()) - 1;
+                // multiply the value at the chose index with the sum of all values 
                 int product = sum * userArray[userIndex];
+                // output the results
                 Console.WriteLine($"Your product: {product}");
+                //return the results
                 return product;
             }
+            // catch potential errors
             catch (IndexOutOfRangeException)
             {
                 throw;
@@ -125,6 +136,7 @@ namespace Lab01_ExceptionHandlingAndDebugging
                 // return quotient
                 return quotient;
             }
+            // catch exceptions with custom message
             catch (DivideByZeroException)
             {
                 Console.WriteLine("Don't you know you can't divide by 0, man?");
