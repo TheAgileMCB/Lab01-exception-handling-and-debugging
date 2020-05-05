@@ -1,13 +1,14 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 
 namespace Lab01_ExceptionHandlingAndDebugging
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             try
             {
@@ -28,7 +29,7 @@ namespace Lab01_ExceptionHandlingAndDebugging
             }
         }
 
-        static void StartSequence()
+        private static void StartSequence()
         {
             // ask user for input
             Console.WriteLine("Please, enter a number greater than zero:");
@@ -52,7 +53,7 @@ namespace Lab01_ExceptionHandlingAndDebugging
 
         }
 
-        static int[] Populate(int[] popArray)
+        private static int[] Populate(int[] popArray)
         {
             //iterate through an array
             for (int i = 0; i < popArray.Length; i++)
@@ -64,30 +65,35 @@ namespace Lab01_ExceptionHandlingAndDebugging
             return popArray;
         }
 
-        static int GetSum(int[] sumArray)
+        private static int GetSum(int[] sumArray)
         {
             // declare sum variable
             int sum = 0;
 
             // iterate through array and sum all elements
+
             try
             {
                 Array.ForEach(sumArray, i => sum += i);
 
                 Console.WriteLine(sum);
-                return sum;
-
+                if (sum < 20)
+                {
+                    Console.WriteLine("Your number is toooo loooow, friend!");
+                    return 0;
+                }
+                else
+                {
+                    return sum;
+                }
             }
             catch (ArgumentNullException)
             {
-                Console.WriteLine("This ain't a number. It's null.");
+
                 throw;
             }
-            finally
-            {
-                Console.WriteLine("Dooone");
-            }
-              
+
+   
        
         }
 
