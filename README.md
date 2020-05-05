@@ -8,3 +8,5 @@ Lab01 of DeltaV 401 covering Exception Handling and Debugging
 **Thank you** to C# and Visual Studio for making this project possible. And thank you to the 2020 DeltaV cohort for their help and encouragement, Keith, Craig, and Ian for supporting us.
 
 **And thanks** for listening.
+
+"The code in this project is licensed under MIT license."
