@@ -32,9 +32,14 @@ namespace Lab01_ExceptionHandlingAndDebugging
 
         private static void StartSequence()
         {
-            // ask user for input
-            Console.WriteLine("Prepare for battle, General. How many battalions do you require today?");
-            int arraySizer = Convert.ToInt32(Console.ReadLine());
+            // set int user input to array size to 0 to set while loop
+            int arraySizer = 0;
+            while (arraySizer == 0)
+            {
+                // ask user for input
+                Console.WriteLine("Prepare for battle, General. How many battalions do you require today?");
+                arraySizer = Convert.ToInt32(Console.ReadLine());
+            }
             
             // instatiate an int array
             int[] userArray = new int[arraySizer];
@@ -98,8 +103,8 @@ namespace Lab01_ExceptionHandlingAndDebugging
             // catch an exception Array.ForEach can throw
             catch (ArgumentNullException)
             {
-
-                throw new Exception("Nice try General, but you aren't getting out of this one.");
+                Console.WriteLine("Nice try General, but you aren't getting out of this one.");
+                throw;
             }
         }
 
@@ -121,7 +126,8 @@ namespace Lab01_ExceptionHandlingAndDebugging
             // catch potential errors
             catch (IndexOutOfRangeException)
             {
-                throw new Exception("You're not getting out of this one, General!");
+                Console.WriteLine("You're not getting out of this one, General!");
+                throw;
            
             }
 
