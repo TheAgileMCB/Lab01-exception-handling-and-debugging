@@ -46,35 +46,35 @@ namespace Lab01_ExceptionHandlingAndDebugging
             GetSum(userArray);
 
             // call GetProduct
-           //GetProduct(userArray, sum);
+           GetProduct(userArray, sum);
 
             // call GetQuotient
-            //GetQuotient(product);
+            GetQuotient(product);
 
         }
 
-        private static int[] Populate(int[] popArray)
+        private static int[] Populate(int[] userArray)
         {
             //iterate through an array
-            for (int i = 0; i < popArray.Length; i++)
+            for (int i = 0; i < userArray.Length; i++)
             {
-                Console.WriteLine($"Please enter number {i+1} of {popArray.Length}");
-                popArray[i] = int.Parse(Console.ReadLine());
+                Console.WriteLine($"Please enter number {i+1} of {userArray.Length}.");
+                userArray[i] = int.Parse(Console.ReadLine());
             }
             
-            return popArray;
+            return userArray;
         }
 
-        private static int GetSum(int[] sumArray)
+        private static int GetSum(int[] userArray)
         {
             // declare sum variable
             int sum = 0;
 
-            // iterate through array and sum all elements
-
             try
             {
-                Array.ForEach(sumArray, i => sum += i);
+                // iterate through array and sum all elements
+
+                Array.ForEach(userArray, i => sum += i);
 
                 Console.WriteLine(sum);
                 if (sum < 20)
@@ -92,19 +92,17 @@ namespace Lab01_ExceptionHandlingAndDebugging
 
                 throw;
             }
-
-   
-       
         }
 
-        //static int GetProduct()
-        //{
+        static int GetProduct(int[] userArray)
+        {
+            Console.WriteLine($"Select a number between 1 and {userArray.Length}, please.");
 
-        //}
+        }
 
-        //static int GetQuotient()
-        //{
+        static int GetQuotient()
+        {
 
-        //}
+        }
     }
 }
